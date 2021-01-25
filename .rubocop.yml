@@ -1,0 +1,17 @@
+Metrics/BlockLength:
+  CountAsOne: ['array', 'hash', 'heredoc']
+Metrics/CyclomaticComplexity:
+  Max: 10
+Metrics/MethodLength:
+  CountAsOne: ['array', 'hash', 'heredoc']
+  Max: 20
+Metrics/PerceivedComplexity:
+  Max: 10
+Style/Documentation:
+  Enabled: false
+Style/DocumentationMethod:
+  Enabled: false
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: consistent_comma
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: consistent_comma
