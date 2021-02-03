@@ -27,4 +27,4 @@ RUN bundle install
 # Copy source codes to the directory.
 COPY --chown=${USERNAME} . ./
 
-CMD ["ruby", "main.rb"]
+CMD ["ruby", "src/main.rb"]
