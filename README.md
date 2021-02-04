@@ -10,7 +10,7 @@ read/write a dictionary which provides "kind-of" fuzzy string searching.
 * A word itself is the `key` to look up the dictionary.
 * A word may or may not have its own `type`.
 * A word must contain its description/definition, called `value` here.
-* Only user with specific `Role` can update (`!learn`/`!forget`) the dictionary.
+* Only user with specific `Role` can update (`learn`/`forget`) the dictionary.
 
 |                                               | query with `type`                                           | query without `type`                                                                                            |
 |-----------------------------------------------|-------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
@@ -21,7 +21,7 @@ read/write a dictionary which provides "kind-of" fuzzy string searching.
 
 ## Interaction Commands
 
-### `!ask`
+### `ask`
 
 Syntax
 
@@ -39,7 +39,7 @@ Examples
 !ask item1
 ```
 
-### `!learn`
+### `learn`
 
 Syntax
 
@@ -59,7 +59,7 @@ Examples
 !learn item1 other description
 ```
 
-### `!forget`
+### `forget`
 
 Syntax
 
@@ -81,9 +81,35 @@ Examples
 
 ## Service-Related Commands
 
-* Use `docker-compose up -d` to start the bot service.
-    * Note that the sample text in the `.env` file should be replaced with your
-        Discord bot token before running.
-* Use `docker-compose build` if you modified the code and would like to apply
-    the changes.
-* Use `docker-compose down` to stop the service.
+* To start the bot service
+
+    Note that create a file named `.env` in the root of the project's directory
+    and fill it with values properly before running the service.
+
+    ```
+    docker-compose up -d
+    ```
+
+* To stop the bot service
+
+    ```
+    docker-compose down
+    ```
+
+* If you modified the code and would like to apply the changes
+
+    ```
+    docker-compose build
+    ```
+
+* To dump data saved in the database to a file
+
+    ```
+    docker-compose exec -T db sh -c 'mongodump --archive --db=uwo_dictionary_bot' > {BACKUP_FILE_PATH}
+    ```
+
+* To restore data from a backup file to the database
+
+    ```
+    docker-compose exec -T db sh -c 'mongorestore --archive --nsInclude="uwo_dictionary_bot.*"' < {BACKUP_FILE_PATH}
+    ```

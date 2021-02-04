@@ -1,14 +1,13 @@
 # frozen_string_literal: true
 
-require 'mongo'
 require_relative '../factories/word_factory'
 
 module UwoDictionaryBot
   module Infrastructure
     module Repositories
       class WordRepository
-        def initialize(**options)
-          @client = Mongo::Client.new(options.delete(:url), options)
+        def initialize(client)
+          @client = client
           @words = @client[:words]
         end
 

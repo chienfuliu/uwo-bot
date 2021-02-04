@@ -1,3 +1,5 @@
+Layout/LineLength:
+  Max: 80
 Metrics/BlockLength:
   CountAsOne: ['array', 'hash', 'heredoc']
 Metrics/CyclomaticComplexity:

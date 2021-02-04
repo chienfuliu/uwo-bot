@@ -12,6 +12,9 @@ services:
     network_mode: service:db
     env_file:
       - .env
+    environment:
+      RACK_ENV: production
+      DATABASE_URL: db
 
   db:
     image: mongo:latest

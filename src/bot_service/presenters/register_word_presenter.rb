@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'i18n'
 require_relative '../view_models/word'
 require_relative 'base'
 
@@ -9,19 +10,21 @@ module UwoDictionaryBot
       class RegisterWordPresenter < Base
         def ok(word)
           word = ViewModels::Word.new(word)
-          @messenger.call("Successfully learned `#{word.display_name}`.")
+          @messenger.call(
+            I18n.t('presenters.register_word.ok', word: word.display_name)
+          )
         end
 
         def argument_invalid
-          @messenger.call('Argument invalid.')
+          @messenger.call(I18n.t('presenters.register_word.argument_invalid'))
         end
 
         def word_not_found
-          @messenger.call('Not found.')
+          @messenger.call(I18n.t('presenters.register_word.word_not_found'))
         end
 
         def update_failed
-          @messenger.call('Update failed.')
+          @messenger.call(I18n.t('presenters.register_word.update_failed'))
         end
       end
     end

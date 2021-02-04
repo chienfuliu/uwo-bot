@@ -1,0 +1,36 @@
+en:
+  commands:
+    common:
+      no_permission: "You don't have permission to execute command `%{command}`!"
+      command_not_found: 'The command `%{command}` was not found!'
+    ask:
+      description: 'Query a word and/or approximate words.'
+    learn:
+      description: 'Learn a word.'
+    forget:
+      description: 'Forget a word.'
+  presenters:
+    deregister_word:
+      ok: 'Successfully forgot `%{word}`.'
+      argument_invalid: 'Argument invalid.'
+      word_not_found: 'Word not found.'
+      update_failed: 'Update failed.'
+    query_words:
+      show_only_exact_word: |-
+        I got `%{word}`.
+        %{description}
+      show_exact_word_with_others: |-
+        I got `%{word}`.
+        %{description}
+        I also got: %{other_words}.
+      show_first_candidate: |-
+        I got only one similar result: `%{word}`.
+        %{description}
+      show_possible_words: 'No exact word found. Do you mean: %{other_words}.'
+      argument_invalid: 'Argument invalid.'
+      word_not_found: 'Word not found.'
+    register_word:
+      ok: 'Successfully learned `%{word}`.'
+      argument_invalid: 'Argument invalid.'
+      word_not_found: 'Word not found.'
+      update_failed: 'Update failed.'

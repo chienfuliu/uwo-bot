@@ -4,7 +4,7 @@ require_relative 'bot_service/bot'
 
 begin
   service = UwoDictionaryBot::BotService::Bot.new
-  service.register_commands.start
+  service.start
 ensure
-  service.stop
+  service&.stop
 end
