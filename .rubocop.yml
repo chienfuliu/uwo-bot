@@ -1,7 +1,12 @@
+require:
+  - rubocop-rspec
+
 Layout/LineLength:
   Max: 80
 Metrics/BlockLength:
   CountAsOne: ['array', 'hash', 'heredoc']
+  Exclude:
+    - spec/**/*
 Metrics/CyclomaticComplexity:
   Max: 10
 Metrics/MethodLength:
@@ -9,6 +14,10 @@ Metrics/MethodLength:
   Max: 20
 Metrics/PerceivedComplexity:
   Max: 10
+RSpec/FilePath:
+  Enabled: false
+RSpec/VerifiedDoubles:
+  Enabled: false
 Style/Documentation:
   Enabled: false
 Style/DocumentationMethod:

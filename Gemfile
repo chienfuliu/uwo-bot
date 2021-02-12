@@ -8,4 +8,6 @@ gem 'mongo', '~> 2.14.0'
 gem 'discordrb', '~> 3.4.0'
 gem 'i18n', '~> 1.8', '>= 1.8.8'
 
+gem 'rspec', '~> 3.10', require: false
 gem 'rubocop', require: false
+gem 'rubocop-rspec', '~> 2.2', require: false
