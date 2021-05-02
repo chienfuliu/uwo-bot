@@ -9,20 +9,21 @@ x-logging: &default-logging
 
 services:
   app:
+    image: chienfuliu/uwo-dictionary-bot:latest
     build:
       context: .
       dockerfile: Dockerfile
       args:
         # On Linux, you may need to update USER_UID and USER_GID below if not
         # your local UID is not 1000.
-        USER_UID: 1000
-        USER_GID: 1000
+        - USER_UID=1000
+        - USER_GID=1000
     network_mode: service:db
     env_file:
       - .env
     environment:
-      RACK_ENV: production
-      DATABASE_URL: db
+      - RACK_ENV=production
+      - DATABASE_URL=db
     logging: *default-logging
 
   db:
