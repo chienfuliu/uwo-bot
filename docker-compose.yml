@@ -18,7 +18,6 @@ services:
         # your local UID is not 1000.
         - USER_UID=1000
         - USER_GID=1000
-    network_mode: service:db
     env_file:
       - .env
     environment:
