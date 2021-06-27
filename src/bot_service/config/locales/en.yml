@@ -10,6 +10,8 @@ en:
     forget:
       description: 'Forget a word.'
   presenters:
+    common:
+      delimiter: ', '
     deregister_word:
       ok: 'Successfully forgot `%{word}`.'
       argument_invalid: 'Argument invalid.'

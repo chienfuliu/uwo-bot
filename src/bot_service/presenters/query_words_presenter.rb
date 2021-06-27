@@ -76,7 +76,8 @@ module UwoDictionaryBot
         end
 
         def concatenate_possible_words(words)
-          words.map { |w| "`#{w.display_name}`" }.join(', ')
+          delimiter = I18n.t('presenters.common.delimiter')
+          words.map { |w| "`#{w.display_name}`" }.join(delimiter)
         end
       end
     end

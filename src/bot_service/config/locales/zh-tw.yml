@@ -10,6 +10,8 @@ zh-tw:
     forget:
       description: '刪除字詞'
   presenters:
+    common:
+      delimiter: '、'
     deregister_word:
       ok: '已成功刪除`%{word}`。'
       argument_invalid: '輸入錯誤。'
