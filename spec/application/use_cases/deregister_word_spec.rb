@@ -20,7 +20,13 @@ describe UwoDictionaryBot::Application::UseCases::DeregisterWord do
 
       it 'asks the repository to find the word' do
         use_case.call(*arguments)
-        expect(repository).to have_received(:find)
+        normalized_name = arguments&.dig(0)&.to_s&.downcase&.strip
+        normalized_type = arguments&.dig(1)&.to_s&.downcase&.strip
+        expected_args = hash_including(
+          name: normalized_name,
+          type: normalized_type
+        )
+        expect(repository).to have_received(:find).with(expected_args)
       end
 
       it 'asks the repository to deregister the word' do
@@ -61,6 +67,12 @@ describe UwoDictionaryBot::Application::UseCases::DeregisterWord do
       it_behaves_like 'a successful case'
     end
 
+    context 'when name is not in lower-case' do
+      let(:arguments) { %w[NaMe type] }
+
+      it_behaves_like 'a successful case'
+    end
+
     context 'when name is nil' do
       let(:arguments) { [nil, 'type'] }
 
@@ -71,6 +83,12 @@ describe UwoDictionaryBot::Application::UseCases::DeregisterWord do
       let(:arguments) { [' ', 'type'] }
 
       it_behaves_like 'a failed case with invalid arguments'
+    end
+
+    context 'when type is not in lower-case' do
+      let(:arguments) { %w[name TyPe] }
+
+      it_behaves_like 'a successful case'
     end
 
     context 'when type is nil' do
