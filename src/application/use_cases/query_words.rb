@@ -18,8 +18,8 @@ module UwoDictionaryBot
           name = normalize_key(name)
           type = normalize_key(type)
 
-          validate_presence_of('name', value: name)
-          validate_presence_of('type', value: type, allow_nil: true)
+          validate_presence_of(name)
+          validate_presence_of(type, allow_nil: true)
 
           # Not specifying the type to find all approximate words.
           words = @word_repository.query(name: name).to_a

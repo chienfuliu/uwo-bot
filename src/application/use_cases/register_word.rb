@@ -19,9 +19,9 @@ module UwoDictionaryBot
           name = normalize_key(name)
           type = normalize_key(type)
 
-          validate_presence_of('name', value: name)
-          validate_presence_of('type', value: type, allow_nil: true)
-          validate_presence_of('description', value: description)
+          validate_presence_of(name)
+          validate_presence_of(type, allow_nil: true)
+          validate_presence_of(description)
 
           word = @word_factory.create_new_word(name, type, description)
           unless @word_repository.register(word)
