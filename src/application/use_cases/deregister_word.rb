@@ -15,6 +15,9 @@ module UwoDictionaryBot
         end
 
         def call(name, type)
+          name = normalize_key(name)
+          type = normalize_key(type)
+
           validate_presence_of('name', value: name)
           validate_presence_of('type', value: type, allow_nil: true)
 

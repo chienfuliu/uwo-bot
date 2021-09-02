@@ -16,7 +16,13 @@ module UwoDictionaryBot
 
         private_constant :BLANK_ERROR_MAPPING
 
-        protected
+        module_function
+
+        def normalize_key(arg)
+          return nil if arg.nil?
+
+          arg.to_s.downcase.strip
+        end
 
         def validate_presence_of(name, value:, allow_nil: false)
           return if value.nil? && allow_nil
