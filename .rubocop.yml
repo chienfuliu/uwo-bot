@@ -16,6 +16,9 @@ Metrics/MethodLength:
   Max: 20
 Metrics/PerceivedComplexity:
   Max: 10
+RSpec/ExampleLength:
+  CountAsOne: ['array', 'hash', 'heredoc']
+  Max: 10
 RSpec/FilePath:
   Enabled: false
 RSpec/VerifiedDoubles:

@@ -21,7 +21,9 @@ describe UwoDictionaryBot::Application::UseCases::QueryWords do
 
       it 'asks the repository to query words' do
         use_case.call(*arguments)
-        expect(repository).to have_received(:query)
+        normalized_name = arguments&.dig(0)&.to_s&.downcase&.strip
+        expected_args = hash_including(name: normalized_name)
+        expect(repository).to have_received(:query).with(expected_args)
       end
 
       it 'passes the words found to the presenter' do
@@ -52,6 +54,12 @@ describe UwoDictionaryBot::Application::UseCases::QueryWords do
       it_behaves_like 'a successful case'
     end
 
+    context 'when name is not in lower-case' do
+      let(:arguments) { %w[NaMe type] }
+
+      it_behaves_like 'a successful case'
+    end
+
     context 'when name is nil' do
       let(:arguments) { [nil, 'type'] }
 
@@ -62,6 +70,12 @@ describe UwoDictionaryBot::Application::UseCases::QueryWords do
       let(:arguments) { [' ', 'type'] }
 
       it_behaves_like 'a failed case with invalid arguments'
+    end
+
+    context 'when type is not in lower-case' do
+      let(:arguments) { %w[name TyPe] }
+
+      it_behaves_like 'a successful case'
     end
 
     context 'when type is nil' do

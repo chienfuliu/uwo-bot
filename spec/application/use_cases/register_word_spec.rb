@@ -21,7 +21,10 @@ describe UwoDictionaryBot::Application::UseCases::RegisterWord do
 
       it 'asks the factory to create a word' do
         use_case.call(*arguments)
-        expect(factory).to have_received(:create_new_word)
+        normalized_name = arguments&.dig(0)&.to_s&.downcase&.strip
+        normalized_type = arguments&.dig(1)&.to_s&.downcase&.strip
+        expected_args = [normalized_name, normalized_type, arguments[2]]
+        expect(factory).to have_received(:create_new_word).with(*expected_args)
       end
 
       it 'asks the repository to register the word' do
@@ -62,6 +65,12 @@ describe UwoDictionaryBot::Application::UseCases::RegisterWord do
       it_behaves_like 'a successful case'
     end
 
+    context 'when name is not in lower-case' do
+      let(:arguments) { %w[NaMe type description] }
+
+      it_behaves_like 'a successful case'
+    end
+
     context 'when name is nil' do
       let(:arguments) { [nil, 'type', 'description'] }
 
@@ -72,6 +81,12 @@ describe UwoDictionaryBot::Application::UseCases::RegisterWord do
       let(:arguments) { [' ', 'type', 'description'] }
 
       it_behaves_like 'a failed case with invalid arguments'
+    end
+
+    context 'when type is not in lower-case' do
+      let(:arguments) { %w[name TyPe description] }
+
+      it_behaves_like 'a successful case'
     end
 
     context 'when type is nil' do

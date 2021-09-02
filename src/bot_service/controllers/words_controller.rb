@@ -24,7 +24,6 @@ module UwoDictionaryBot
             presenter: presenter
           )
 
-          name.downcase!
           type, name = name.split('_', 2) if name.match?(/\w+_\w+/)
           use_case.call(name, type)
         end
@@ -37,7 +36,6 @@ module UwoDictionaryBot
             presenter: presenter
           )
 
-          name.downcase!
           type, name = name.split('_', 2) if name.match?(/\w+_\w+/)
           # Retrieve description from the rest of content as it may contain
           # space or new line characters, and we would like to keep the format.
@@ -52,7 +50,6 @@ module UwoDictionaryBot
             presenter: presenter
           )
 
-          name.downcase!
           type, name = name.split('_', 2) if name.match?(/\w+_\w+/)
           use_case.call(name, type)
         end
