@@ -1,0 +1,35 @@
+version: '3.8'
+
+x-logging: &default-logging
+  driver: json-file
+  options:
+    max-size: 20m
+    max-file: '2'
+    compress: 'true'
+
+services:
+  app:
+    build:
+      context: ..
+      dockerfile: uwo_bot_service/Dockerfile
+      args:
+        # On Linux, you may need to update USER_UID and USER_GID below if not
+        # your local UID is not 1000.
+        - USER_UID=1000
+        - USER_GID=1000
+    env_file:
+      - .env
+    environment:
+      - RACK_ENV=production
+      - DATABASE_URL=db
+    logging: *default-logging
+
+  db:
+    image: mongo:latest
+    restart: unless-stopped
+    volumes:
+      - mongodb-data:/data/db
+    logging: *default-logging
+
+volumes:
+  mongodb-data:

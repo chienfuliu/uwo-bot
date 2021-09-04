@@ -1,3 +1,16 @@
+PATH
+  remote: .
+  specs:
+    uwo_bot (1.0.0)
+      uwo_bot_core (= 1.0.0)
+      uwo_bot_service (= 1.0.0)
+    uwo_bot_core (1.0.0)
+    uwo_bot_service (1.0.0)
+      discordrb (~> 3.4.0)
+      i18n (~> 1.8, >= 1.8.8)
+      mongo (~> 2.14.0)
+      uwo_bot_core (= 1.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -82,12 +95,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  discordrb (~> 3.4.0)
-  i18n (~> 1.8, >= 1.8.8)
-  mongo (~> 2.14.0)
   rspec (~> 3.10)
   rubocop
   rubocop-rspec (~> 2.2)
+  uwo_bot!
 
 RUBY VERSION
    ruby 2.7.2p137
