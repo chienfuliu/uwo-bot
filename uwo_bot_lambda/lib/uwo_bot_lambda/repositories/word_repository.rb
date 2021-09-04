@@ -71,7 +71,7 @@ module UwoBotLambda
       def to_entity(item)
         return nil unless item
 
-        UwoBotLambda.config.factories.word.create_new_word(
+        UwoBotLambda.config.factories.word.create(
           item['name'],
           item['type'] == UNTYPED_SYMBOL ? nil : item['type'],
           item['description']

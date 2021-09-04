@@ -21,7 +21,7 @@ module UwoBotCore
           validate_presence_of(type, allow_nil: true)
           validate_presence_of(description)
 
-          word = @word_factory.create_new_word(name, type, description)
+          word = @word_factory.create(name, type, description)
           unless @word_repository.register(word)
             @presenter&.update_failed
             return

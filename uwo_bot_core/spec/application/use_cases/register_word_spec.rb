@@ -12,7 +12,7 @@ RSpec.describe UwoBotCore::Application::UseCases::RegisterWord do
   describe '#call' do
     shared_examples 'a successful case' do
       before do
-        allow(factory).to receive(:create_new_word).and_return(anything)
+        allow(factory).to receive(:create).and_return(anything)
         allow(repository).to receive(:register).and_return(true)
         allow(presenter).to receive(:ok)
       end
@@ -22,7 +22,7 @@ RSpec.describe UwoBotCore::Application::UseCases::RegisterWord do
         normalized_name = arguments&.dig(0)&.to_s&.downcase&.strip
         normalized_type = arguments&.dig(1)&.to_s&.downcase&.strip
         expected_args = [normalized_name, normalized_type, arguments[2]]
-        expect(factory).to have_received(:create_new_word).with(*expected_args)
+        expect(factory).to have_received(:create).with(*expected_args)
       end
 
       it 'asks the repository to register the word' do
@@ -43,7 +43,7 @@ RSpec.describe UwoBotCore::Application::UseCases::RegisterWord do
 
       it 'does not ask the factory to create a word' do
         use_case.call(*arguments)
-        expect(factory).not_to have_received(:create_new_word)
+        expect(factory).not_to have_received(:create)
       end
 
       it 'does not ask the repository to register the word' do
@@ -113,7 +113,7 @@ RSpec.describe UwoBotCore::Application::UseCases::RegisterWord do
 
     context 'when repository fails to update' do
       before do
-        allow(factory).to receive(:create_new_word).and_return(anything)
+        allow(factory).to receive(:create).and_return(anything)
         allow(repository).to receive(:register).and_return(false)
         allow(presenter).to receive(:update_failed)
       end
@@ -122,7 +122,7 @@ RSpec.describe UwoBotCore::Application::UseCases::RegisterWord do
 
       it 'asks the factory to create a word' do
         use_case.call(*arguments)
-        expect(factory).to have_received(:create_new_word)
+        expect(factory).to have_received(:create)
       end
 
       it 'asks the repository to register the word' do

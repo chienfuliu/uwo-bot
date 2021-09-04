@@ -4,7 +4,7 @@ module UwoBotCore
   module Infrastructure
     module Factories
       class WordSimpleFactory
-        def create_new_word(name, type, description)
+        def create(name, type, description)
           Domain::Entities::Word.new(name, type, description)
         end
       end

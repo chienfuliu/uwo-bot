@@ -24,7 +24,7 @@ module UwoBotCore
           word = extract_exact_word!(words, type)
 
           if word.nil? && words.empty?
-            @presenter&.word_not_found
+            @presenter&.not_found
             return
           end
 

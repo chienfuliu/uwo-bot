@@ -15,7 +15,7 @@ en:
     deregister_word:
       ok: 'Successfully forgot `%{word}`.'
       argument_invalid: 'Argument invalid.'
-      word_not_found: 'Word not found.'
+      not_found: 'Word not found.'
       update_failed: 'Update failed.'
     query_words:
       show_only_exact_word: |-
@@ -30,9 +30,9 @@ en:
         %{description}
       show_possible_words: 'No exact word found. Do you mean: %{other_words}.'
       argument_invalid: 'Argument invalid.'
-      word_not_found: 'Word not found.'
+      not_found: 'Word not found.'
     register_word:
       ok: 'Successfully learned `%{word}`.'
       argument_invalid: 'Argument invalid.'
-      word_not_found: 'Word not found.'
+      not_found: 'Word not found.'
       update_failed: 'Update failed.'

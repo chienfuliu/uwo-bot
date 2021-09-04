@@ -23,8 +23,8 @@ module UwoBotLambda
         @messenger.call(I18n.t('presenters.query_words.argument_invalid'))
       end
 
-      def word_not_found
-        @messenger.call(I18n.t('presenters.query_words.word_not_found'))
+      def not_found
+        @messenger.call(I18n.t('presenters.query_words.not_found'))
       end
 
       private

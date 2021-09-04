@@ -42,7 +42,7 @@ module UwoBotService
         return nil unless row
 
         factory = UwoBotCore::Infrastructure::Factories::WordSimpleFactory.new
-        factory.create_new_word(
+        factory.create(
           row['name'],
           row['type'],
           row['description']

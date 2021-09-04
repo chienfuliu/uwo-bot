@@ -91,7 +91,7 @@ RSpec.describe UwoBotCore::Application::UseCases::QueryWords do
     context 'when words are not found' do
       before do
         allow(repository).to receive(:query).and_return([])
-        allow(presenter).to receive(:word_not_found)
+        allow(presenter).to receive(:not_found)
       end
 
       let(:arguments) { %w[name type] }
@@ -101,9 +101,9 @@ RSpec.describe UwoBotCore::Application::UseCases::QueryWords do
         expect(repository).to have_received(:query)
       end
 
-      it 'triggers presenter#word_not_found' do
+      it 'triggers presenter#not_found' do
         use_case.call(*arguments)
-        expect(presenter).to have_received(:word_not_found)
+        expect(presenter).to have_received(:not_found)
       end
     end
   end

@@ -14,8 +14,8 @@ module UwoBotLambda
         @messenger.call(I18n.t('presenters.deregister_word.argument_invalid'))
       end
 
-      def word_not_found
-        @messenger.call(I18n.t('presenters.deregister_word.word_not_found'))
+      def not_found
+        @messenger.call(I18n.t('presenters.deregister_word.not_found'))
       end
 
       def update_failed

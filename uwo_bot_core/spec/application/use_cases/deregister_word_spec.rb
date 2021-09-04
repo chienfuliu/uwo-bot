@@ -104,7 +104,7 @@ RSpec.describe UwoBotCore::Application::UseCases::DeregisterWord do
     context 'when word is not found' do
       before do
         allow(repository).to receive(:find).and_return(nil)
-        allow(presenter).to receive(:word_not_found)
+        allow(presenter).to receive(:not_found)
       end
 
       let(:arguments) { %w[name type] }
@@ -119,9 +119,9 @@ RSpec.describe UwoBotCore::Application::UseCases::DeregisterWord do
         expect(repository).not_to have_received(:deregister)
       end
 
-      it 'triggers presenter#word_not_found' do
+      it 'triggers presenter#not_found' do
         use_case.call(*arguments)
-        expect(presenter).to have_received(:word_not_found)
+        expect(presenter).to have_received(:not_found)
       end
     end
 

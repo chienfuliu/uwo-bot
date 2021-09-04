@@ -21,7 +21,7 @@ module UwoBotCore
 
           word = @word_repository.find(name: name, type: type)
           unless word
-            @presenter&.word_not_found
+            @presenter&.not_found
             return
           end
 
