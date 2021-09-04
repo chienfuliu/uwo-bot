@@ -12,7 +12,6 @@ RSpec.describe UwoBotCore::Application::UseCases::QueryWords do
     shared_examples 'a successful case' do
       before do
         allow(repository).to receive(:query).and_return([word])
-        allow(presenter).to receive(:ok)
       end
 
       let(:word) { spy(name: 'name', type: 'type', description: 'description') }
@@ -31,10 +30,6 @@ RSpec.describe UwoBotCore::Application::UseCases::QueryWords do
     end
 
     shared_examples 'a failed case with invalid arguments' do
-      before do
-        allow(presenter).to receive(:argument_invalid)
-      end
-
       it 'does not ask the repository to query words' do
         use_case.call(*arguments)
         expect(repository).not_to have_received(:query)
@@ -91,15 +86,9 @@ RSpec.describe UwoBotCore::Application::UseCases::QueryWords do
     context 'when words are not found' do
       before do
         allow(repository).to receive(:query).and_return([])
-        allow(presenter).to receive(:not_found)
       end
 
       let(:arguments) { %w[name type] }
-
-      it 'asks the repository to query words' do
-        use_case.call(*arguments)
-        expect(repository).to have_received(:query)
-      end
 
       it 'triggers presenter#not_found' do
         use_case.call(*arguments)

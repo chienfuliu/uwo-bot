@@ -14,7 +14,6 @@ RSpec.describe UwoBotCore::Application::UseCases::RegisterWord do
       before do
         allow(factory).to receive(:create).and_return(anything)
         allow(repository).to receive(:register).and_return(true)
-        allow(presenter).to receive(:ok)
       end
 
       it 'asks the factory to create a word' do
@@ -37,10 +36,6 @@ RSpec.describe UwoBotCore::Application::UseCases::RegisterWord do
     end
 
     shared_examples 'a failed case with invalid arguments' do
-      before do
-        allow(presenter).to receive(:argument_invalid)
-      end
-
       it 'does not ask the factory to create a word' do
         use_case.call(*arguments)
         expect(factory).not_to have_received(:create)
@@ -115,20 +110,9 @@ RSpec.describe UwoBotCore::Application::UseCases::RegisterWord do
       before do
         allow(factory).to receive(:create).and_return(anything)
         allow(repository).to receive(:register).and_return(false)
-        allow(presenter).to receive(:update_failed)
       end
 
       let(:arguments) { %w[name type description] }
-
-      it 'asks the factory to create a word' do
-        use_case.call(*arguments)
-        expect(factory).to have_received(:create)
-      end
-
-      it 'asks the repository to register the word' do
-        use_case.call(*arguments)
-        expect(repository).to have_received(:register)
-      end
 
       it 'triggers presenter#update_failed' do
         use_case.call(*arguments)

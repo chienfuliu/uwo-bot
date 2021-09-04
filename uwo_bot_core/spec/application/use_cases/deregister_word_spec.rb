@@ -13,7 +13,6 @@ RSpec.describe UwoBotCore::Application::UseCases::DeregisterWord do
       before do
         allow(repository).to receive(:find).and_return(anything)
         allow(repository).to receive(:deregister).and_return(true)
-        allow(presenter).to receive(:ok)
       end
 
       it 'asks the repository to find the word' do
@@ -39,10 +38,6 @@ RSpec.describe UwoBotCore::Application::UseCases::DeregisterWord do
     end
 
     shared_examples 'a failed case with invalid arguments' do
-      before do
-        allow(presenter).to receive(:argument_invalid)
-      end
-
       it 'does not ask the repository to find the word' do
         use_case.call(*arguments)
         expect(repository).not_to have_received(:find)
@@ -104,15 +99,9 @@ RSpec.describe UwoBotCore::Application::UseCases::DeregisterWord do
     context 'when word is not found' do
       before do
         allow(repository).to receive(:find).and_return(nil)
-        allow(presenter).to receive(:not_found)
       end
 
       let(:arguments) { %w[name type] }
-
-      it 'asks the repository to find the word' do
-        use_case.call(*arguments)
-        expect(repository).to have_received(:find)
-      end
 
       it 'does not ask the repository to deregister the word' do
         use_case.call(*arguments)
@@ -127,21 +116,11 @@ RSpec.describe UwoBotCore::Application::UseCases::DeregisterWord do
 
     context 'when repository fails to update' do
       before do
+        allow(repository).to receive(:find).and_return(anything)
         allow(repository).to receive(:deregister).and_return(false)
-        allow(presenter).to receive(:update_failed)
       end
 
       let(:arguments) { %w[name type] }
-
-      it 'asks the repository to find the word' do
-        use_case.call(*arguments)
-        expect(repository).to have_received(:find)
-      end
-
-      it 'asks the repository to deregister the word' do
-        use_case.call(*arguments)
-        expect(repository).to have_received(:deregister)
-      end
 
       it 'triggers presenter#update_failed' do
         use_case.call(*arguments)
