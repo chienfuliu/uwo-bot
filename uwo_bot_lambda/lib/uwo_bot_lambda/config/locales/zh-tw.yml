@@ -1,0 +1,28 @@
+zh-tw:
+  presenters:
+    common:
+      delimiter: '、'
+    deregister_word:
+      ok: '已成功刪除`%{word}`。'
+      argument_invalid: '輸入錯誤。'
+      word_not_found: '未找到紀錄。'
+      update_failed: '刪除失敗！'
+    query_words:
+      show_only_exact_word: |-
+        已成功找到`%{word}`：
+        %{description}
+      show_exact_word_with_others: |-
+        已成功找到`%{word}`：
+        %{description}
+        【註】其他相似字詞：%{other_words}。
+      show_first_candidate: |-
+        找到一相似字詞`%{word}`：
+        %{description}
+      show_possible_words: '找不到準確符合的字詞。可能的字詞：%{other_words}。'
+      argument_invalid: '輸入錯誤。'
+      word_not_found: '未找到紀錄。'
+    register_word:
+      ok: '已成功登錄`%{word}`。'
+      argument_invalid: '輸入錯誤。'
+      word_not_found: '未找到紀錄。'
+      update_failed: '登錄失敗！'

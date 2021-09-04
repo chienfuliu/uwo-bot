@@ -1,0 +1,7 @@
+/.bundle/
+/doc/
+/pkg/*
+!/pkg/.keep
+/tmp/
+/vendor/*
+!/vendor/.keep

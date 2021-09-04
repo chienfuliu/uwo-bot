@@ -14,5 +14,6 @@ Gem::Specification.new do |s|
   s.required_ruby_version = Gem::Requirement.new('>= 2.3.0')
 
   s.add_runtime_dependency 'uwo_bot_core', version
+  s.add_runtime_dependency 'uwo_bot_lambda', version
   s.add_runtime_dependency 'uwo_bot_service', version
 end
