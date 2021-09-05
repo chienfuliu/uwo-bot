@@ -34,5 +34,4 @@ zh-tw:
     register_word:
       ok: '已成功登錄`%{word}`。'
       argument_invalid: '輸入錯誤。'
-      not_found: '未找到紀錄。'
       update_failed: '登錄失敗！'

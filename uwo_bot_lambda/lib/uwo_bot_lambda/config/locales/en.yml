@@ -47,5 +47,4 @@ en:
     register_word:
       ok: 'Successfully learned `%{word}`.'
       argument_invalid: 'Argument invalid.'
-      not_found: 'Word not found.'
       update_failed: 'Update failed.'

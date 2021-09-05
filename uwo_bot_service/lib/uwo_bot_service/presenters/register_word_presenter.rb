@@ -14,10 +14,6 @@ module UwoBotService
         @messenger.call(I18n.t('presenters.register_word.argument_invalid'))
       end
 
-      def not_found
-        @messenger.call(I18n.t('presenters.register_word.not_found'))
-      end
-
       def update_failed
         @messenger.call(I18n.t('presenters.register_word.update_failed'))
       end
