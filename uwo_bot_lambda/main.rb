@@ -25,10 +25,22 @@ private
 
 def configure_bot
   UwoBotLambda.configure do |config|
-    config.locale = :'zh-tw'
+    config.locale = ENV['LOCALE']
+    config.timezone = ENV['TIMEZONE']
+
+    config.discord_app.public_key = ENV['PUBLIC_KEY']
+
+    config.factories.price =
+      UwoBotCore::Infrastructure::Factories::PriceSimpleFactory.new
+    config.factories.price_tag =
+      UwoBotCore::Infrastructure::Factories::PriceTagSimpleFactory.new
     config.factories.word =
       UwoBotCore::Infrastructure::Factories::WordSimpleFactory.new
+
+    db_client = Aws::DynamoDB::Client.new
+    config.repositories.price_tag =
+      UwoBotLambda::Repositories::PriceTagRepository.new(db_client)
     config.repositories.word =
-      UwoBotLambda::Repositories::WordRepository.new(Aws::DynamoDB::Client.new)
+      UwoBotLambda::Repositories::WordRepository.new(db_client)
   end
 end

@@ -1,20 +1,21 @@
 PATH
   remote: .
   specs:
-    uwo_bot (1.0.0)
-      uwo_bot_core (= 1.0.0)
-      uwo_bot_lambda (= 1.0.0)
-      uwo_bot_service (= 1.0.0)
-    uwo_bot_core (1.0.0)
-    uwo_bot_lambda (1.0.0)
+    uwo_bot (1.1.0)
+      uwo_bot_core (= 1.1.0)
+      uwo_bot_lambda (= 1.1.0)
+      uwo_bot_service (= 1.1.0)
+    uwo_bot_core (1.1.0)
+    uwo_bot_lambda (1.1.0)
       ed25519 (~> 1.2, >= 1.2.4)
       i18n (~> 1.8, >= 1.8.8)
-      uwo_bot_core (= 1.0.0)
-    uwo_bot_service (1.0.0)
+      tzinfo (~> 2.0)
+      uwo_bot_core (= 1.1.0)
+    uwo_bot_service (1.1.0)
       discordrb (~> 3.4.0)
       i18n (~> 1.8, >= 1.8.8)
       mongo (~> 2.14.0)
-      uwo_bot_core (= 1.0.0)
+      uwo_bot_core (= 1.1.0)
 
 GEM
   remote: https://rubygems.org/
@@ -88,6 +89,8 @@ GEM
       rubocop (~> 1.0)
       rubocop-ast (>= 1.1.0)
     ruby-progressbar (1.11.0)
+    tzinfo (2.0.4)
+      concurrent-ruby (~> 1.0)
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.7)

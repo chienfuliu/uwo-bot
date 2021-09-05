@@ -1,0 +1,263 @@
+[
+    {
+        "name": "ask",
+        "description": "查詢字詞的定義/市價",
+        "options": [
+            {
+                "name": "word",
+                "description": "查詢字詞的定義",
+                "type": 1,
+                "options": [
+                    {
+                        "name": "name",
+                        "description": "字詞",
+                        "type": 3,
+                        "required": true
+                    },
+                    {
+                        "name": "type",
+                        "description": "類別",
+                        "type": 3,
+                        "required": false,
+                        "choices": [
+                            {
+                                "name": "Ship",
+                                "value": "ship"
+                            },
+                            {
+                                "name": "Item",
+                                "value": "item"
+                            },
+                            {
+                                "name": "Equipment",
+                                "value": "equip"
+                            },
+                            {
+                                "name": "Material",
+                                "value": "material"
+                            },
+                            {
+                                "name": "Ship Skill",
+                                "value": "shipskill"
+                            },
+                            {
+                                "name": "Character",
+                                "value": "char"
+                            },
+                            {
+                                "name": "Other",
+                                "value": "~"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "price",
+                "description": "查詢物件的市價",
+                "type": 1,
+                "options": [
+                    {
+                        "name": "name",
+                        "description": "物件",
+                        "type": 3,
+                        "required": true
+                    },
+                    {
+                        "name": "type",
+                        "description": "類別",
+                        "type": 3,
+                        "required": false,
+                        "choices": [
+                            {
+                                "name": "Ship",
+                                "value": "ship"
+                            },
+                            {
+                                "name": "Item",
+                                "value": "item"
+                            },
+                            {
+                                "name": "Equipment",
+                                "value": "equip"
+                            },
+                            {
+                                "name": "Material",
+                                "value": "material"
+                            },
+                            {
+                                "name": "Other",
+                                "value": "~"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "learn",
+        "description": "新增字詞的定義/市價",
+        "default_permission": false,
+        "options": [
+            {
+                "name": "word",
+                "description": "新增字詞的定義",
+                "type": 1,
+                "options": [
+                    {
+                        "name": "name",
+                        "description": "字詞",
+                        "type": 3,
+                        "required": true
+                    },
+                    {
+                        "name": "type",
+                        "description": "類別",
+                        "type": 3,
+                        "required": true,
+                        "choices": [
+                            {
+                                "name": "Ship",
+                                "value": "ship"
+                            },
+                            {
+                                "name": "Item",
+                                "value": "item"
+                            },
+                            {
+                                "name": "Equipment",
+                                "value": "equip"
+                            },
+                            {
+                                "name": "Material",
+                                "value": "material"
+                            },
+                            {
+                                "name": "Ship Skill",
+                                "value": "shipskill"
+                            },
+                            {
+                                "name": "Character",
+                                "value": "char"
+                            },
+                            {
+                                "name": "Other",
+                                "value": "~"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "description",
+                        "description": "定義",
+                        "type": 3,
+                        "required": true
+                    }
+                ]
+            },
+            {
+                "name": "price",
+                "description": "新增物件的市價",
+                "type": 1,
+                "options": [
+                    {
+                        "name": "name",
+                        "description": "物件",
+                        "type": 3,
+                        "required": true
+                    },
+                    {
+                        "name": "type",
+                        "description": "類別",
+                        "type": 3,
+                        "required": true,
+                        "choices": [
+                            {
+                                "name": "Ship",
+                                "value": "ship"
+                            },
+                            {
+                                "name": "Item",
+                                "value": "item"
+                            },
+                            {
+                                "name": "Equipment",
+                                "value": "equip"
+                            },
+                            {
+                                "name": "Material",
+                                "value": "material"
+                            },
+                            {
+                                "name": "Other",
+                                "value": "~"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "price",
+                        "description": "市價",
+                        "type": 3,
+                        "required": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "forget",
+        "description": "移除字詞的定義",
+        "default_permission": false,
+        "options": [
+            {
+                "name": "word",
+                "description": "移除字詞的定義",
+                "type": 1,
+                "options": [
+                    {
+                        "name": "name",
+                        "description": "字詞",
+                        "type": 3,
+                        "required": true
+                    },
+                    {
+                        "name": "type",
+                        "description": "類別",
+                        "type": 3,
+                        "required": false,
+                        "choices": [
+                            {
+                                "name": "Ship",
+                                "value": "ship"
+                            },
+                            {
+                                "name": "Item",
+                                "value": "item"
+                            },
+                            {
+                                "name": "Equipment",
+                                "value": "equip"
+                            },
+                            {
+                                "name": "Material",
+                                "value": "material"
+                            },
+                            {
+                                "name": "Ship Skill",
+                                "value": "shipskill"
+                            },
+                            {
+                                "name": "Character",
+                                "value": "char"
+                            },
+                            {
+                                "name": "Other",
+                                "value": "~"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]

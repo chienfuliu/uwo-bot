@@ -2,11 +2,28 @@ zh-tw:
   presenters:
     common:
       delimiter: '、'
+      registered_at: '登錄時間'
+      price_value: '價格'
     deregister_word:
       ok: '已成功刪除`%{word}`。'
       argument_invalid: '輸入錯誤。'
       not_found: '未找到紀錄。'
       update_failed: '刪除失敗！'
+    query_price_tags:
+      show_only_exact_price_tag: |-
+        已成功找到 `%{display_name}` ：
+        %{price_table}
+      show_exact_price_tag_with_others: |-
+        已成功找到 `%{display_name}` ：
+        %{price_table}
+        【註】其他相似物件： %{other_words} 。
+      show_first_candidate: |-
+        找到一相似物件 `%{display_name}` ：
+        %{price_table}
+      show_possible_price_tags: |-
+        找不到準確符合的物件。可能的物件： %{other_price_tags} 。
+      argument_invalid: '輸入錯誤。'
+      not_found: '未找到紀錄。'
     query_words:
       show_only_exact_word: |-
         已成功找到`%{word}`：
@@ -21,6 +38,12 @@ zh-tw:
       show_possible_words: '找不到準確符合的字詞。可能的字詞：%{other_words}。'
       argument_invalid: '輸入錯誤。'
       not_found: '未找到紀錄。'
+    register_price_tag:
+      ok: |-
+        已成功登錄 `%{display_name}` ：
+        %{price_table}
+      argument_invalid: '輸入錯誤。'
+      update_failed: '登錄失敗！'
     register_word:
       ok: '已成功登錄`%{word}`。'
       argument_invalid: '輸入錯誤。'

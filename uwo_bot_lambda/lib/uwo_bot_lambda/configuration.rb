@@ -4,10 +4,17 @@ module UwoBotLambda
   module Configuration
     SUPPORTED_CONFIGS = {
       locale: :en,
+      timezone: 'UTC',
+      discord_app: {
+        public_key: nil,
+      },
       factories: {
-        word: UwoBotCore::Infrastructure::Factories::WordSimpleFactory.new,
+        price: nil,
+        price_tag: nil,
+        word: nil,
       },
       repositories: {
+        price_tag: nil,
         word: nil,
       },
     }.freeze

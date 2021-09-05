@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'time'
+
 require 'uwo_bot_core/version'
 
 require 'uwo_bot_core/application/use_cases'

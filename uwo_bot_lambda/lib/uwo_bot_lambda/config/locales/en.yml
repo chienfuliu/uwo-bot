@@ -2,11 +2,28 @@ en:
   presenters:
     common:
       delimiter: ', '
+      registered_at: 'Registration Time'
+      price_value: 'Price'
     deregister_word:
       ok: 'Successfully forgot `%{word}`.'
       argument_invalid: 'Argument invalid.'
       not_found: 'Word not found.'
       update_failed: 'Update failed.'
+    query_price_tags:
+      show_only_exact_price_tag: |-
+        I got `%{display_name}`.
+        %{price_table}
+      show_exact_price_tag_with_others: |-
+        I got `%{display_name}`.
+        %{price_table}
+        I also got: %{other_price_tags}.
+      show_first_candidate: |-
+        I got only one similar result: `%{display_name}`.
+        %{price_table}
+      show_possible_price_tags: |-
+        No exact price tag found. Do you mean: %{other_price_tags}.
+      argument_invalid: 'Argument invalid'
+      not_found: 'Record not found.'
     query_words:
       show_only_exact_word: |-
         I got `%{word}`.
@@ -21,6 +38,12 @@ en:
       show_possible_words: 'No exact word found. Do you mean: %{other_words}.'
       argument_invalid: 'Argument invalid.'
       not_found: 'Word not found.'
+    register_price_tag:
+      ok: |-
+        Successfully registered `%{display_name}`.
+        %{price_table}
+      argument_invalid: 'Argument invalid.'
+      update_failed: 'Update failed.'
     register_word:
       ok: 'Successfully learned `%{word}`.'
       argument_invalid: 'Argument invalid.'

@@ -11,6 +11,9 @@ module UwoBotLambda
     ].freeze
 
     HANDLER_MAPPING = {
+      %w[ask price] => [Controllers::PriceTagsController, :ask],
+      %w[learn price] => [Controllers::PriceTagsController, :learn],
+
       %w[ask word] => [Controllers::WordsController, :ask],
       %w[learn word] => [Controllers::WordsController, :learn],
       %w[forget word] => [Controllers::WordsController, :forget],
@@ -52,7 +55,8 @@ module UwoBotLambda
       signature = signature.scan(/../).map(&:hex).pack('c*')
       return false unless signature.size == Ed25519::SIGNATURE_SIZE
 
-      public_key = ENV['PUBLIC_KEY'].scan(/../).map(&:hex).pack('c*')
+      discord_app_key = UwoBotLambda.config.discord_app.public_key
+      public_key = discord_app_key.scan(/../).map(&:hex).pack('c*')
       verify_key = Ed25519::VerifyKey.new(public_key)
 
       verify_key.verify(signature, timestamp + @raw_body)
