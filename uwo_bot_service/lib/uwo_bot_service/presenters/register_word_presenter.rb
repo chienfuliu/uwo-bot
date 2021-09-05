@@ -6,7 +6,7 @@ module UwoBotService
       def ok(word)
         word = ViewModels::Word.new(word)
         @messenger.call(
-          I18n.t('presenters.register_word.ok', word: word.display_name)
+          I18n.t('presenters.register_word.ok', display_name: word.display_name)
         )
       end
 

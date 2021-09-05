@@ -33,7 +33,7 @@ module UwoBotService
         @messenger.call(
           I18n.t(
             'presenters.query_words.show_only_exact_word',
-            word: word.display_name,
+            display_name: word.display_name,
             description: word.description
           )
         )
@@ -43,7 +43,7 @@ module UwoBotService
         @messenger.call(
           I18n.t(
             'presenters.query_words.show_exact_word_with_others',
-            word: word.display_name,
+            display_name: word.display_name,
             description: word.description,
             other_words: concatenate_possible_words(words)
           )
@@ -55,7 +55,7 @@ module UwoBotService
         @messenger.call(
           I18n.t(
             'presenters.query_words.show_first_candidate',
-            word: word.display_name,
+            display_name: word.display_name,
             description: word.description
           )
         )

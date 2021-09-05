@@ -13,25 +13,25 @@ en:
     common:
       delimiter: ', '
     deregister_word:
-      ok: 'Successfully forgot `%{word}`.'
+      ok: 'Successfully forgot `%{display_name}`.'
       argument_invalid: 'Argument invalid.'
       not_found: 'Word not found.'
       update_failed: 'Update failed.'
     query_words:
       show_only_exact_word: |-
-        I got `%{word}`.
+        I got `%{display_name}`.
         %{description}
       show_exact_word_with_others: |-
-        I got `%{word}`.
+        I got `%{display_name}`.
         %{description}
         I also got: %{other_words}.
       show_first_candidate: |-
-        I got only one similar result: `%{word}`.
+        I got only one similar result: `%{display_name}`.
         %{description}
       show_possible_words: 'No exact word found. Do you mean: %{other_words}.'
       argument_invalid: 'Argument invalid.'
       not_found: 'Word not found.'
     register_word:
-      ok: 'Successfully learned `%{word}`.'
+      ok: 'Successfully learned `%{display_name}`.'
       argument_invalid: 'Argument invalid.'
       update_failed: 'Update failed.'
