@@ -3,6 +3,7 @@
 module UwoBotLambda
   module Repositories
     class WordRepository
+      TABLE_NAME = 'words'
       UNTYPED_SYMBOL = '~'
 
       def initialize(client)
@@ -27,7 +28,7 @@ module UwoBotLambda
 
       def register(word)
         @client.put_item(
-          table_name: 'words',
+          table_name: TABLE_NAME,
           item: {
             name: word.name,
             type: word.type || UNTYPED_SYMBOL,
@@ -42,7 +43,7 @@ module UwoBotLambda
 
       def deregister(word)
         @client.delete_item(
-          table_name: 'words',
+          table_name: TABLE_NAME,
           key: {
             name: word.name,
             type: word.type || UNTYPED_SYMBOL,
@@ -58,7 +59,7 @@ module UwoBotLambda
 
       def convert_to_query_condition(**conditions)
         {
-          table_name: 'words',
+          table_name: TABLE_NAME,
           key_condition_expression:
             conditions.keys.map { |key| "##{key} = :#{key}" }.join(' AND '),
           expression_attribute_names:
