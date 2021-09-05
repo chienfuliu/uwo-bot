@@ -37,7 +37,9 @@ module UwoBotLambda
       messenger = ->(message) { messages << message }
 
       controller_class, action, params = handler_with_params
-      controller_class.new(messenger: messenger).public_send(action, params)
+      I18n.with_locale(UwoBotLambda.config.locale) do
+        controller_class.new(messenger: messenger).public_send(action, params)
+      end
 
       Response.from_message(messages.join("\n"))
     rescue StandardError => e
