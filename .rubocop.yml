@@ -1,8 +1,6 @@
 require:
   - rubocop-rspec
 
-AllCops:
-  NewCops: enable
 Layout/LineLength:
   Max: 80
 Metrics/BlockLength:
