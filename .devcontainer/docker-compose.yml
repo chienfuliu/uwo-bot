@@ -35,8 +35,10 @@ services:
 
     # Use "forwardPorts" in **devcontainer.json** to forward an app port locally.
     # (Adding the "ports" property to this file will not forward from a Codespace.)
-    env_file:
-      - ../uwo_bot_service/.env
+
+    # Uncomment the next two lines if you want to load environment variables from .env file.
+    # env_file:
+    #   - ../uwo_bot_service/.env
     environment:
       - RACK_ENV=development
       - DATABASE_URL=db
