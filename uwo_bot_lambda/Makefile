@@ -1,6 +1,6 @@
 CORE_GEM_NAME := uwo_bot_core
 LAMBDA_GEM_NAME := uwo_bot_lambda
-VENDOR_PATH := vendor/bundle/ruby/2.7.0
+VENDOR_PATH := vendor/bundle/ruby/3.4.0
 
 package_for_lambda:
 	rm -rf vendor/*

@@ -6,7 +6,7 @@ Layout/LineLength:
 Metrics/BlockLength:
   CountAsOne: ['array', 'hash', 'heredoc']
   Exclude:
-    - spec/**/*
+    - '**/spec/**/*_spec.rb'
 Metrics/CyclomaticComplexity:
   Max: 10
 Metrics/MethodLength:

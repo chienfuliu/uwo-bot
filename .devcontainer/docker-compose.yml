@@ -6,14 +6,8 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
-        - VARIANT=2.7.2
-        - INSTALL_ZSH=false
-        - INSTALL_NODE=false
-        # On Linux, you may need to update USER_UID and USER_GID below if not
-        # your local UID is not 1000.
-        - USER_UID=1000
-        - USER_GID=1000
-    init: true
+        - VARIANT=3.4-trixie
+
     volumes:
       # Forwards the local Docker socket to the container.
       - /var/run/docker.sock:/var/run/docker-host.sock
@@ -30,8 +24,8 @@ services:
     # security_opt:
     #   - seccomp:unconfined
 
-    # Uncomment the next line to use a non-root user for all processes.
-    # user: vscode
+    # Runs app on the same network as the database container, allows "forwardPorts" in devcontainer.json function.
+    network_mode: service:db
 
     # Use "forwardPorts" in **devcontainer.json** to forward an app port locally.
     # (Adding the "ports" property to this file will not forward from a Codespace.)

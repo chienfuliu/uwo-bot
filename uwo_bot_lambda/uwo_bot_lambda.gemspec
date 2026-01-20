@@ -14,6 +14,7 @@ Gem::Specification.new do |s|
   s.require_paths         = ['lib']
   s.required_ruby_version = Gem::Requirement.new('>= 2.3.0')
 
+  s.add_runtime_dependency 'aws-sdk-dynamodb', '~> 1.160'
   s.add_runtime_dependency 'ed25519', '~> 1.2', '>= 1.2.4'
   s.add_runtime_dependency 'i18n', '~> 1.8', '>= 1.8.8'
   s.add_runtime_dependency 'tzinfo', '~> 2.0'

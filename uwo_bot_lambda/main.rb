@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-$LOAD_PATH << File.expand_path('lib', __dir__)
-
 require 'aws-sdk-dynamodb'
 require 'uwo_bot_lambda'
 
