@@ -1,26 +1,44 @@
 PATH
   remote: .
   specs:
-    uwo_bot (1.1.0)
-      uwo_bot_core (= 1.1.0)
-      uwo_bot_lambda (= 1.1.0)
-      uwo_bot_service (= 1.1.0)
-    uwo_bot_core (1.1.0)
-    uwo_bot_lambda (1.1.0)
+    uwo_bot (1.2.0)
+      uwo_bot_core (= 1.2.0)
+      uwo_bot_lambda (= 1.2.0)
+      uwo_bot_service (= 1.2.0)
+    uwo_bot_core (1.2.0)
+    uwo_bot_lambda (1.2.0)
+      aws-sdk-dynamodb (~> 1.160)
       ed25519 (~> 1.2, >= 1.2.4)
       i18n (~> 1.8, >= 1.8.8)
       tzinfo (~> 2.0)
-      uwo_bot_core (= 1.1.0)
-    uwo_bot_service (1.1.0)
+      uwo_bot_core (= 1.2.0)
+    uwo_bot_service (1.2.0)
       discordrb (~> 3.4.0)
       i18n (~> 1.8, >= 1.8.8)
       mongo (~> 2.14.0)
-      uwo_bot_core (= 1.1.0)
+      uwo_bot_core (= 1.2.0)
 
 GEM
   remote: https://rubygems.org/
   specs:
     ast (2.4.2)
+    aws-eventstream (1.4.0)
+    aws-partitions (1.1206.0)
+    aws-sdk-core (3.241.4)
+      aws-eventstream (~> 1, >= 1.3.0)
+      aws-partitions (~> 1, >= 1.992.0)
+      aws-sigv4 (~> 1.9)
+      base64
+      bigdecimal
+      jmespath (~> 1, >= 1.6.1)
+      logger
+    aws-sdk-dynamodb (1.160.0)
+      aws-sdk-core (~> 3, >= 3.241.4)
+      aws-sigv4 (~> 1.5)
+    aws-sigv4 (1.12.1)
+      aws-eventstream (~> 1, >= 1.0.2)
+    base64 (0.3.0)
+    bigdecimal (4.0.1)
     bson (4.11.1)
     concurrent-ruby (1.1.8)
     diff-lcs (1.4.4)
@@ -42,6 +60,11 @@ GEM
       domain_name (~> 0.5)
     i18n (1.8.8)
       concurrent-ruby (~> 1.0)
+    jmespath (1.6.2)
+    json (2.18.0)
+    language_server-protocol (3.17.0.5)
+    lint_roller (1.1.0)
+    logger (1.7.0)
     mime-types (3.3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2020.1104)
@@ -51,16 +74,20 @@ GEM
     opus-ruby (1.0.1)
       ffi
     parallel (1.21.0)
-    parser (3.0.3.2)
+    parser (3.3.10.1)
       ast (~> 2.4.1)
+      racc
+    prism (1.8.0)
+    racc (1.8.1)
     rainbow (3.0.0)
-    regexp_parser (2.2.0)
+    rbs (3.10.2)
+      logger
+    regexp_parser (2.11.3)
     rest-client (2.1.0)
       http-accept (>= 1.7.0, < 2.0)
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
-    rexml (3.2.5)
     rspec (3.10.0)
       rspec-core (~> 3.10.0)
       rspec-expectations (~> 3.10.0)
@@ -74,26 +101,35 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.10.0)
     rspec-support (3.10.2)
-    rubocop (1.23.0)
+    rubocop (1.82.1)
+      json (~> 2.3)
+      language_server-protocol (~> 3.17.0.2)
+      lint_roller (~> 1.1.0)
       parallel (~> 1.10)
-      parser (>= 3.0.0.0)
+      parser (>= 3.3.0.2)
       rainbow (>= 2.2.2, < 4.0)
-      regexp_parser (>= 1.8, < 3.0)
-      rexml
-      rubocop-ast (>= 1.12.0, < 2.0)
+      regexp_parser (>= 2.9.3, < 3.0)
+      rubocop-ast (>= 1.48.0, < 2.0)
       ruby-progressbar (~> 1.7)
-      unicode-display_width (>= 1.4.0, < 3.0)
-    rubocop-ast (1.15.0)
-      parser (>= 3.0.1.1)
+      unicode-display_width (>= 2.4.0, < 4.0)
+    rubocop-ast (1.49.0)
+      parser (>= 3.3.7.2)
+      prism (~> 1.7)
     rubocop-rspec (2.6.0)
       rubocop (~> 1.19)
+    ruby-lsp (0.26.4)
+      language_server-protocol (~> 3.17.0)
+      prism (>= 1.2, < 2.0)
+      rbs (>= 3, < 5)
     ruby-progressbar (1.11.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.7)
-    unicode-display_width (2.1.0)
+    unicode-display_width (3.2.0)
+      unicode-emoji (~> 4.1)
+    unicode-emoji (4.2.0)
     websocket (1.2.9)
     websocket-client-simple (0.3.0)
       event_emitter
@@ -106,10 +142,11 @@ DEPENDENCIES
   rspec (~> 3.10)
   rubocop
   rubocop-rspec (~> 2.2)
+  ruby-lsp
   uwo_bot!
 
 RUBY VERSION
-   ruby 2.7.2p137
+   ruby 3.4.8p72
 
 BUNDLED WITH
-   2.1.4
+   2.6.9
